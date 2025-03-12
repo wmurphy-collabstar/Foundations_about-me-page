@@ -1,0 +1,54 @@
+/* Variables for all values */
+:root{
+    --debugging-border: 1px solid black;
+    --zero-margin: 0;
+    --zero-padding: 0;
+    --page-height: 100%;
+}
+
+
+/*UTILITY CLASSES*/
+.border-box{
+    box-sizing: border-box;
+}
+
+.no-margin-no-padding{
+    margin: var(--zero-margin);
+    padding: var(--zero-padding);
+}
+
+.black-border{
+    border: var(--debugging-border);
+}
+
+/*LAYOUT*/
+
+/*Layout: Whole page*/
+html, body, .container{
+    height: var(--page-height);
+}
+
+.container{
+    border-width: 5px;
+    border-color: green;
+    
+}
+
+/*Layout: Professional About Me*/
+
+/*Layout: Professional Images*/
+
+/*Layout: Professional Headers and Paragraph*/
+
+/*Layout: Personal About Me*/
+
+/*Layout: Personal Images*/
+
+/*Layout: Personal Header and Paragraphs*/
+
+/*Sizing: Images*/
+.image{
+    width: 5rem;
+    object-fit: cover;
+}
+
