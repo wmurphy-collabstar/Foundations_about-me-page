@@ -9,17 +9,18 @@
     /*Main section*/
     --page-height: 100%;
     --container-margin: 2rem 0;
-    --container-padding: 1rem 25%;
+    --container-padding: 1rem 0;
     --title-text-align: center;
 
     /*About me sections*/
-    --about-width: 75%;
+    --about-padding: 0 25%;
+    --about-col-width: 75%;
     --about-height: 40%;
     --about-images-width: 25%;
     --about-paragraph-text-align: center;
 
     /*Image sizing*/
-    --image-height: calc(100% / 3);
+    --image-height: 10rem;/*calc(100% / 3);*/
     --image-fit: cover;
 }
 
@@ -68,6 +69,8 @@ html, body{
 
 .professional, .personal{
     height: var(--about-height);
+    border: 3px solid red;
+    padding: var(--about-padding);
 }
 
 /*Layout: Professional and Personal Images*/
@@ -80,7 +83,7 @@ html, body{
 /*Layout: Professional and Personal Headers and Paragraph*/
 
 .about-me{
-    width: var(--about-width);
+    width: var(--about-col-width);
     align-items: center;
 }
 
@@ -90,7 +93,7 @@ html, body{
 
 .about-me-paragraph{
     text-align: var(--about-paragraph-text-align);
-    width: var(--about-width);
+    width: var(--about-col-width);
 }
 
 span{
@@ -100,7 +103,7 @@ span{
 
 /*Sizing: Images*/
 .image{
-    /* height: var(--image-height); */
+    height: var(--image-height);
     /* width: calc(var(--image-height)*4); */
     object-fit: var(--image-fit);
 }
