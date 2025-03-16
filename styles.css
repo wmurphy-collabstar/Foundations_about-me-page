@@ -34,7 +34,7 @@
 
     /*Font-size*/
     --professional-paragraph-font-size: 1rem;
-    --personal-paragraph-font-size: 1.5rem;
+    --personal-paragraph-font-size: 1.25rem;
 
     /*Colors*/
     /*Palette*/
@@ -94,7 +94,6 @@ html, body{
 }
 
 .container{
-    border: 5px solid green;
     margin: var(--container-margin);
     padding: var(--container-padding);
 }
@@ -107,7 +106,6 @@ html, body{
 
 .professional, .personal{
     height: var(--about-height);
-    border: 3px solid red;
     padding: var(--about-padding);
 }
 
@@ -176,7 +174,22 @@ span{
     color: var(--header-title-color);
 }
 
-/*Professional About Me*/
+/*About Me sections*/
+
+.professional, .personal{
+    position: relative;
+    overflow: hidden;
+}
+
+.about-me-background-image{
+    opacity: .2;
+    position: absolute;
+    left: 50%;
+    top: -3%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: auto;
+}
 
 .light-mode{
     color: var(--dark-mode-color);
@@ -207,16 +220,40 @@ span{
 }
 
 .footer{
-    display: flex;
+    /* display: flex; */
+    font-family: var(--page-title-font-family);
+    font-size: var(--personal-paragraph-font-size);
     background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
     color: var(--light-mode-color);
-    text-align: left;
-    padding: 2rem 10rem;
-    flex-wrap: wrap;
-    align-items: center;
+    text-align: center;
+    padding: 2rem 25%;
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
 }
 
-.footer *{
+.photo-credit-title{
+    padding-bottom: 2rem;
+}
+
+.photo-credit-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+.photo-credit-name{
+    font-size: 1.25rem;
+    text-decoration: underline;
+}
+
+.photo-credit{
+    text-align: center;
     margin-right: 2rem;
+    margin-bottom: 2rem;
     width: 10rem;
+}
+
+.photo-credit-link{
+    color: cornflowerblue;
 }
