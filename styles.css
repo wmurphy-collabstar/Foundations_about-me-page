@@ -8,20 +8,59 @@
     /*Page layout values*/
     /*Main section*/
     --page-height: 100%;
-    --container-margin: 2rem 0;
+    --container-margin: 0;
     --container-padding: 1rem 0;
     --title-text-align: center;
 
     /*About me sections*/
-    --about-padding: 0 25%;
-    --about-col-width: 75%;
+    --about-padding: 0 20%;
+    --about-col-width: 70%;
     --about-height: 40%;
-    --about-images-width: 25%;
+    --about-images-width: 30%;
     --about-paragraph-text-align: center;
+    --span-display: block;
+    --span-margin-bottom: .5rem;
+    --about-images-justify-content: space-evenly;
 
     /*Image sizing*/
-    --image-height: 10rem;/*calc(100% / 3);*/
+    --image-height: auto;/*10rem;calc(100% / 3);*/
     --image-fit: cover;
+
+    /*Font styling*/
+    /*Font family*/
+    --page-title-font-family: "Akaya Telivigala", Arial, sans-serif;
+    --professional-font-family: "Gelasio", Georgia, serif;
+    --personal-font-family: "Nanum Pen Script", Arial, sans-serif;
+
+    /*Font-size*/
+    --professional-paragraph-font-size: 1rem;
+    --personal-paragraph-font-size: 1.5rem;
+
+    /*Colors*/
+    /*Palette*/
+    --light-mode-color: #F5F5DC;
+    --dark-mode-color: #2A473B;
+    --in-between-color: #3e6958;
+    --light-mode-paragraph-border-color-start: var(--dark-mode-color);
+    --light-mode-paragraph-border-color-end: transparent;
+    --light-mode-image-border-color-start: var(--dark-mode-color);
+    --light-mode-image-border-color-mid: var(--in-between-color);
+    --light-mode-image-border-color-end: var(--light-mode-color);
+    --dark-mode-paragraph-border-color-start: var(--light-mode-color);
+    --dark-mode-paragraph-border-color-end: transparent;
+    --dark-mode-image-border-color-start: var(--light-mode-color);
+    --dark-mode-image-border-color-mid: var(--in-between-color);
+    --dark-mode-image-border-color-end: var(--dark-mode-color);
+    --background-image-opacity: 20%;
+
+    /*Header*/
+    --header-background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
+    --header-title-color: var(--light-mode-color);
+
+    /*Light Mode*/
+    --image-border: radial-gradient()
+
+    /*Dark Mode*/
 }
 
 /*UTILITY CLASSES*/
@@ -51,12 +90,11 @@
 
 /*Layout: Whole page*/
 html, body{
-    height: 100%;
+    height: var(--page-height);
 }
 
 .container{
-    border-width: 5px;
-    border-color: green;
+    border: 5px solid green;
     margin: var(--container-margin);
     padding: var(--container-padding);
 }
@@ -77,14 +115,14 @@ html, body{
 
 .professional-images, .personal-images{
     width: var(--about-images-width);
-    justify-content: space-evenly;
+    justify-content: var(--about-images-justify-content);
 }
 
 /*Layout: Professional and Personal Headers and Paragraph*/
 
 .about-me{
     width: var(--about-col-width);
-    align-items: center;
+    align-items: var(--about-paragraph-text-align);
 }
 
 .about-me-subtitle{
@@ -94,11 +132,13 @@ html, body{
 .about-me-paragraph{
     text-align: var(--about-paragraph-text-align);
     width: var(--about-col-width);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    padding: 1rem;
 }
 
 span{
-    display: block;
-    margin-bottom: .5em;
+    display: var(--span-display);
+    margin-bottom: var(--span-margin-bottom);
 }
 
 /*Sizing: Images*/
@@ -106,5 +146,77 @@ span{
     height: var(--image-height);
     /* width: calc(var(--image-height)*4); */
     object-fit: var(--image-fit);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+
 }
 
+/*Font Styling*/
+
+.about-me-title{
+    font-family: var(--page-title-font-family);
+}
+
+.professional{
+    font-family: var(--professional-font-family);
+    font-size: var(--professional-paragraph-font-size);
+}
+
+.personal{
+    font-family: var(--personal-font-family);
+    font-size: var(--personal-paragraph-font-size);
+}
+
+/* Colors*/
+/*Header*/
+.container{
+    background: var(--header-background);
+}
+
+.about-me-title{
+    color: var(--header-title-color);
+}
+
+/*Professional About Me*/
+
+.light-mode{
+    color: var(--dark-mode-color);
+    background-color: var(--light-mode-color);
+}
+
+.light-mode-paragraph-border{
+    border-image: radial-gradient(var(--light-mode-paragraph-border-color-start), var(--light-mode-paragraph-border-color-end));
+}
+
+.light-mode-image{
+    padding: 10px;
+    background: radial-gradient(70% 70%, var(--light-mode-image-border-color-start) 0%, var(--light-mode-image-border-color-mid) 50%, var(--light-mode-image-border-color-end) 100%);
+}
+
+.dark-mode{
+    color: var(--light-mode-color);
+    background-color: var(--dark-mode-color);
+}
+
+.dark-mode-paragraph-border{
+    border-image: radial-gradient(var(--dark-mode-paragraph-border-color-start), var(--dark-mode-paragraph-border-color-end));
+}
+
+.dark-mode-image{
+    padding: 10px;
+    background: radial-gradient(70% 70%, var(--dark-mode-image-border-color-start) 0%, var(--dark-mode-image-border-color-mid) 50%, var(--dark-mode-image-border-color-end) 100%);
+}
+
+.footer{
+    display: flex;
+    background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
+    color: var(--light-mode-color);
+    text-align: left;
+    padding: 2rem 10rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer *{
+    margin-right: 2rem;
+    width: 10rem;
+}
