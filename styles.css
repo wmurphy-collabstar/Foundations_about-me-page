@@ -14,13 +14,28 @@
 
     /*About me sections*/
     --about-padding: 0 20%;
-    --about-col-width: 70%;
     --about-height: 40%;
+    --about-position: relative;
+    --about-overflow: hidden;
+    --about-col-width: 70%;
     --about-images-width: 30%;
+    --about-paragraph-padding: 2rem;
     --about-paragraph-text-align: center;
     --span-display: block;
     --span-margin-bottom: .5rem;
     --about-images-justify-content: space-evenly;
+
+    /*Footer*/
+    --footer-padding: 2rem 25%;
+    --footer-title-padding-bottom: 2rem;
+    --footer-credit-list-display: flex;
+    --footer-credit-list-flex-wrap: wrap;
+    --footer-credit-list-justify-content: center;
+    --footer-credit-list-style: none;
+    --footer-credit-item-text-align: center;
+    --footer-credit-item-margin-right: 2rem;
+    --footer-credit-item-margin-bottom: 2rem;
+    --footer-credit-item-width: 10rem;
 
     /*Image sizing*/
     --image-height: auto;/*10rem;calc(100% / 3);*/
@@ -57,10 +72,28 @@
     --header-background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
     --header-title-color: var(--light-mode-color);
 
+    /*About Me sections*/
+    --about-me-paragraph-image-box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    /*Used box-shadow suggestion from answer to question https://stackoverflow.com/questions/8289470/creating-a-fuzzy-border-in-css-3 
+    by `methodoaction`, and his demo through jsfiddle: https://jsfiddle.net/WYLJv/*/ 
+    --about-me-background-image-opacity: .2;
+    --about-me-background-image-position: absolute;
+    --about-me-background-image-left: 50%;
+    --about-me-background-image-top: -3%;
+    --about-me-background-image-transform: translateX(-50%);
+    --about-me-background-image-width: 75%;
+    --about-me-background-image-height: auto;
+    --about-me-image-padding: 10px;
     /*Light Mode*/
-    --image-border: radial-gradient()
+    --light-mode-image-background: radial-gradient(70% 70%, var(--light-mode-image-border-color-start) 0%, var(--light-mode-image-border-color-mid) 50%, var(--light-mode-image-border-color-end) 100%);
 
     /*Dark Mode*/
+    --dark-mode-image-background: radial-gradient(70% 70%, var(--dark-mode-image-border-color-start) 0%, var(--dark-mode-image-border-color-mid) 50%, var(--dark-mode-image-border-color-end) 100%);
+
+    /*Footer*/
+    --footer-credit-item-name-font-size: 1.25rem;
+    --footer-credit-item-name-text-decoration: underline;
+    --footer-credit-item-link-color: #6495ED;
 }
 
 /*UTILITY CLASSES*/
@@ -107,6 +140,21 @@ html, body{
 .professional, .personal{
     height: var(--about-height);
     padding: var(--about-padding);
+    position: var(--about-position);
+    overflow: var(--about-overflow);
+}
+
+.about-me-background-image{
+    /*Used class from article about how to add background image using classes: 
+    https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity#method-1-using-a-separate-image-element-and-positioning
+    */
+    opacity: var(--about-me-background-image-opacity);
+    position: var(--about-me-background-image-position);
+    left: var(--about-me-background-image-left);
+    top: var(--about-me-background-image-top);
+    transform: var(--about-me-background-image-transform);
+    width: var(--about-me-background-image-width);
+    height: var(--about-me-background-image-height);
 }
 
 /*Layout: Professional and Personal Images*/
@@ -130,8 +178,8 @@ html, body{
 .about-me-paragraph{
     text-align: var(--about-paragraph-text-align);
     width: var(--about-col-width);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
-    padding: 1rem;
+    box-shadow: var(--about-me-paragraph-image-box-shadow); 
+    padding: var(--about-paragraph-padding);
 }
 
 span{
@@ -142,9 +190,8 @@ span{
 /*Sizing: Images*/
 .image{
     height: var(--image-height);
-    /* width: calc(var(--image-height)*4); */
     object-fit: var(--image-fit);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    box-shadow: var(--about-me-paragraph-image-box-shadow);
 
 }
 
@@ -176,33 +223,16 @@ span{
 
 /*About Me sections*/
 
-.professional, .personal{
-    position: relative;
-    overflow: hidden;
-}
-
-.about-me-background-image{
-    opacity: .2;
-    position: absolute;
-    left: 50%;
-    top: -3%;
-    transform: translateX(-50%);
-    width: 75%;
-    height: auto;
-}
-
 .light-mode{
     color: var(--dark-mode-color);
     background-color: var(--light-mode-color);
 }
 
-.light-mode-paragraph-border{
-    border-image: radial-gradient(var(--light-mode-paragraph-border-color-start), var(--light-mode-paragraph-border-color-end));
-}
-
+/*Decided to make gradient border by putting div with gradient behind image, 
+since I couldn't figure out how to do a radial gradient border with the border property*/
 .light-mode-image{
-    padding: 10px;
-    background: radial-gradient(70% 70%, var(--light-mode-image-border-color-start) 0%, var(--light-mode-image-border-color-mid) 50%, var(--light-mode-image-border-color-end) 100%);
+    padding: var(--about-me-image-padding);
+    background: var(--light-mode-image-background);
 }
 
 .dark-mode{
@@ -210,50 +240,46 @@ span{
     background-color: var(--dark-mode-color);
 }
 
-.dark-mode-paragraph-border{
-    border-image: radial-gradient(var(--dark-mode-paragraph-border-color-start), var(--dark-mode-paragraph-border-color-end));
-}
-
+/*Decided to make gradient border by putting div with gradient behind image, 
+since I couldn't figure out how to do a radial gradient border with the border property*/
 .dark-mode-image{
-    padding: 10px;
-    background: radial-gradient(70% 70%, var(--dark-mode-image-border-color-start) 0%, var(--dark-mode-image-border-color-mid) 50%, var(--dark-mode-image-border-color-end) 100%);
+    padding: var(--about-me-image-padding);
+    background: var(--dark-mode-image-background);
 }
 
+/*Footer layout, font styling and colors*/
 .footer{
-    /* display: flex; */
     font-family: var(--page-title-font-family);
     font-size: var(--personal-paragraph-font-size);
-    background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
+    background: var(--header-background);
     color: var(--light-mode-color);
-    text-align: center;
-    padding: 2rem 25%;
-    /* flex-wrap: wrap; */
-    /* align-items: center; */
+    text-align: var(--title-text-align);
+    padding: var(--footer-padding);
 }
 
 .photo-credit-title{
-    padding-bottom: 2rem;
+    padding-bottom: var(--footer-title-padding-bottom);
 }
 
 .photo-credit-list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
+    display: var(--footer-credit-list-display);
+    flex-wrap: var(--footer-credit-list-flex-wrap);
+    justify-content: var(--footer-credit-list-justify-content);
+    list-style: var(--footer-credit-list-style);
 }
 
 .photo-credit-name{
-    font-size: 1.25rem;
-    text-decoration: underline;
+    font-size: var(--footer-credit-item-name-font-size);
+    text-decoration: var(--footer-credit-item-name-text-decoration);
 }
 
 .photo-credit{
-    text-align: center;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-    width: 10rem;
+    text-align: var(--footer-credit-item-text-align);
+    margin-right: var(--footer-credit-item-margin-right);
+    margin-bottom: var(--footer-credit-item-margin-bottom);
+    width: var(--footer-credit-item-width);
 }
 
 .photo-credit-link{
-    color: cornflowerblue;
+    color: var(--footer-credit-item-link-color);
 }
