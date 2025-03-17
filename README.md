@@ -25,7 +25,7 @@ All in all, this project gave me a chance to design a page to represent someone 
 
 ## Running the project
 ### Live version
-[About Alex David]()
+[About Alex David](https://wmurphy-collabstar.github.io/Foundations_about-me-page/)
 ### From the repo
 1. Clone this repo locally
 2. Copy the path to the HTML file
