@@ -66,7 +66,6 @@
     --dark-mode-image-border-color-start: var(--light-mode-color);
     --dark-mode-image-border-color-mid: var(--in-between-color);
     --dark-mode-image-border-color-end: var(--dark-mode-color);
-    --background-image-opacity: 20%;
 
     /*Header*/
     --header-background: linear-gradient(90deg, var(--in-between-color), var(--dark-mode-color), var(--in-between-color));
