@@ -80,7 +80,7 @@
     --about-me-background-image-left: 50%;
     --about-me-background-image-top: -3%;
     --about-me-background-image-transform: translateX(-50%);
-    --about-me-background-image-width: 75%;
+    --about-me-background-image-width: 100%;
     --about-me-background-image-height: auto;
     --about-me-image-padding: 10px;
     /*Light Mode*/
@@ -116,6 +116,10 @@
 .flex-col-container{
     display: flex;
     flex-direction: column;
+}
+
+.position-relative{
+    position: relative;
 }
 
 /*LAYOUT*/
